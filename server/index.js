@@ -17,7 +17,7 @@ const appState = {
 }
 
 io.on('connection', (socket) => {
-    console.log("-----New Client Connected-----")
+    console.log("-----Connected-----")
 
     socket.on('submission', (equation, answer) => {
         if(appState.equations.length < 10){
@@ -30,11 +30,11 @@ io.on('connection', (socket) => {
             appState.answers.shift()
             appState.answers.push(equationAnswer)
         }
-        console.log(appState)
+        socket.broadcast.emit('updateAppState', appState)
     }) 
 
     socket.on('disconnect', () => {
-        console.log('--User Has Left--')
+        console.log('--Disconnected--')
     })
 })
 
