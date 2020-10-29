@@ -1,7 +1,8 @@
 import './App.css';
-import Window from './Window'
+import Window from './Components/Window'
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
