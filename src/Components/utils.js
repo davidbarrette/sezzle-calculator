@@ -17,7 +17,8 @@ export const utils = {
                     return false
                 }
             }
-            if(input.charAt(i) === '^' || input.charAt(i) === '%'){ //Doesn't support these characters
+            if(input.charAt(i) === '^' || input.charAt(i) === '%' ||
+            input.charAt(i) === '(' || input.charAt(i) === ')'){ //Doesn't support these characters
                 alert("I'm sorry, this calculator does not support exponential or modular arithmetic")
                 return false
             }

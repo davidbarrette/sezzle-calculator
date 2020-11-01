@@ -18,19 +18,18 @@ const Window = () => {
             setAnswers([...answers])
         })
     })
-
-    console.log(equations)
+    
     return (
         <div className="App">
             <header className="App-header">
-            <EquationHolder 
-                equations = {equations}
-                answers = {answers}/>
             <EquationSubmit 
                 equations = {equations}
                 answers = {answers}
                 setAnswers = {setAnswers}
                 setEquations = {setEquations}/>
+            <EquationHolder 
+                equations = {equations.reverse()}
+                answers = {answers.reverse()}/>
             </header>
         </div>
     );

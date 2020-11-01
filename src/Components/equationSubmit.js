@@ -28,26 +28,12 @@ export default class EquationSubmit extends React.Component {
         let equationAnswer
         if(utils.checkIfValidEquation(equationToSubmit)){
             equationAnswer = utils.getAnswer(equationToSubmit)
-
-            let newEquations = this.props.equations
-            let newAnswers = this.props.answers
-            if(newEquations.length < 10){
-                newEquations.push(equationToSubmit)
-                newAnswers.push(equationAnswer)
-            } 
-            else{
-                newEquations.shift()
-                newEquations.push(equationToSubmit)
-                newAnswers.shift()
-                newAnswers.push(equationAnswer)
-            }
-            this.props.setEquations([...newEquations])
-            this.props.setAnswers([...newAnswers])
+            socket.emit('submission', equationToSubmit, equationAnswer)  
         } else {
             alert("Please input a valid equation")
         }
 
-        socket.emit('submission', equationToSubmit, equationAnswer)
+        
 
         equationToSubmit = ""
         this.form.reset()

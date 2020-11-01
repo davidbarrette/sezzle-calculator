@@ -1,8 +1,8 @@
 import React from 'react'
 
 const EquationHolder = (props) =>{
-    const equations = props.equations
-    const answers = props.answers
+    let equations = props.equations
+    let answers = props.answers
 
     return (
         <div style = {{background:"gray", padding:"15px"}} className="equationHolder">

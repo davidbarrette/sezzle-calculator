@@ -21,16 +21,16 @@ io.on('connection', (socket) => {
 
     socket.on('submission', (equation, answer) => {
         if(appState.equations.length < 10){
-            appState.equations.push(equation)
-            appState.answers.push(answer)
-        } 
+            appState.equations.unshift(equation)    //I think pushing the new equations looks better, making the new
+            appState.answers.unshift(answer)        //equations start at the bottom and scroll up.  I moved the submition
+        }                                           //I moved the submission above the equationHolder in order to look nicer 
         else{
             appState.equations.shift()
-            appState.equations.push(equationToSubmit)
+            appState.equations.unshift(equation)
             appState.answers.shift()
-            appState.answers.push(equationAnswer)
+            appState.answers.unshift(answer)
         }
-        socket.broadcast.emit('updateAppState', appState)
+    socket.broadcast.emit('updateAppState', appState)
     }) 
 
     socket.on('disconnect', () => {
