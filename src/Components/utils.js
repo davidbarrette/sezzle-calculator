@@ -18,8 +18,9 @@ export const utils = {
                 }
             }
             if(input.charAt(i) === '^' || input.charAt(i) === '%' ||
-            input.charAt(i) === '(' || input.charAt(i) === ')'){ //Doesn't support these characters
-                alert("I'm sorry, this calculator does not support exponential or modular arithmetic")
+            input.charAt(i) === '(' || input.charAt(i) === ')' ||
+            input.charAt(i) === '=' ||input.charAt(i) === '>' || input.charAt(i) === '<'){ //Doesn't support these characters
+                alert("I'm sorry, this calculator does not support exponential or modular arithmetic or boolean logic")
                 return false
             }
         }

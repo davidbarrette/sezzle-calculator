@@ -22,14 +22,14 @@ const Window = () => {
     return (
         <div className="App">
             <header className="App-header">
+            <EquationHolder 
+                equations = {equations.reverse()}
+                answers = {answers.reverse()}/>
             <EquationSubmit 
                 equations = {equations}
                 answers = {answers}
                 setAnswers = {setAnswers}
                 setEquations = {setEquations}/>
-            <EquationHolder 
-                equations = {equations.reverse()}
-                answers = {answers.reverse()}/>
             </header>
         </div>
     );
